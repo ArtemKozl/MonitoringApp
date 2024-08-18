@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonitoringApp.MonitoringNowPage"
+             Title="Мониторинг">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="40"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Column="1" Grid.Row="2">
+
+            <Button Text="Запустить" Command="{Binding StartMonitoring}"/>
+        </StackLayout>
+
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button Text="Общее" Clicked="Button_Clicked_1" Grid.Column="0" Grid.Row="0" HeightRequest="25"  BackgroundColor="#262626"  CornerRadius="0" TextColor="DarkGray"/>
+            <Button Text="Мониторинг" Grid.Column="1" Grid.Row="0" HeightRequest="25" CornerRadius="0" BackgroundColor="#262626" TextColor="MediumPurple" BorderColor="MediumPurple" BorderWidth="3"/>
+            <Button Text="Сравнение" Clicked="Button_Clicked" Grid.Column="2" Grid.Row="0" HeightRequest="25"  BackgroundColor="#262626" CornerRadius="0" TextColor="DarkGray"/>
+        </Grid>
+    </Grid>
+</ContentPage>

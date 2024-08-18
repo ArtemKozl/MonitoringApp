@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:chart = "clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             x:Class="MonitoringApp.MainPage"
+             Title="Общее">
+
+    <ScrollView>
+        <Grid >
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Text="Общее" Grid.Column="0" Grid.Row="0" HeightRequest="25" BackgroundColor="#262626" CornerRadius="0" TextColor="MediumPurple" BorderColor="MediumPurple" BorderWidth="3"/>
+                <Button Text="Мониторинг" Clicked="Button_Clicked" Grid.Column="1" Grid.Row="0" HeightRequest="25"  BackgroundColor="#262626" CornerRadius="0" TextColor="DarkGray"/>
+                <Button Text="Сравнение" Clicked="Button_Clicked_1" Grid.Column="2" Grid.Row="0" HeightRequest="25"  BackgroundColor="#262626" CornerRadius="0" TextColor="DarkGray"/>
+
+                <chart:SfCartesianChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1">
+
+                    <chart:SfCartesianChart.ZoomPanBehavior>
+                        <chart:ChartZoomPanBehavior EnablePinchZooming="True"
+                            EnableDirectionalZooming="True"/>
+                    </chart:SfCartesianChart.ZoomPanBehavior>
+
+                    <chart:SfCartesianChart.Legend>
+                        <chart:ChartLegend IsVisible="True"/>
+                    </chart:SfCartesianChart.Legend>
+
+                    <chart:SfCartesianChart.XAxes>
+                        <chart:CategoryAxis/>
+                    </chart:SfCartesianChart.XAxes>
+
+
+                    <chart:SfCartesianChart.YAxes>
+                        <chart:NumericalAxis/>
+                    </chart:SfCartesianChart.YAxes>
+
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="Temp"
+                        Label="Температура">
+
+                    </chart:LineSeries>
+
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MaxTemp"
+                        Label="Макисальная температура">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MinTemp"
+                        Label="Минимальная температура">
+                    </chart:LineSeries>
+                </chart:SfCartesianChart>
+
+                <chart:SfCartesianChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1">
+
+                    <chart:SfCartesianChart.ZoomPanBehavior>
+                        <chart:ChartZoomPanBehavior EnablePinchZooming="True"
+                            EnableDirectionalZooming="True"/>
+                    </chart:SfCartesianChart.ZoomPanBehavior>
+
+                    <chart:SfCartesianChart.Legend>
+                        <chart:ChartLegend IsVisible="True"/>
+                    </chart:SfCartesianChart.Legend>
+
+                    <chart:SfCartesianChart.XAxes>
+                        <chart:CategoryAxis/>
+                    </chart:SfCartesianChart.XAxes>
+
+
+                    <chart:SfCartesianChart.YAxes>
+                        <chart:NumericalAxis/>
+                    </chart:SfCartesianChart.YAxes>
+
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="Light"
+                        Label="Освещенность">
+
+                    </chart:LineSeries>
+
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MaxLight"
+                        Label="Макисальная освещенность">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MinLight"
+                        Label="Минимальная освещенность">
+                    </chart:LineSeries>
+                </chart:SfCartesianChart>
+                <chart:SfCartesianChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="2" Grid.Row="1">
+
+                    <chart:SfCartesianChart.ZoomPanBehavior>
+                        <chart:ChartZoomPanBehavior EnablePinchZooming="True"
+                            EnableDirectionalZooming="True"/>
+                    </chart:SfCartesianChart.ZoomPanBehavior>
+
+                    <chart:SfCartesianChart.Legend>
+                        <chart:ChartLegend IsVisible="True"/>
+                    </chart:SfCartesianChart.Legend>
+
+                    <chart:SfCartesianChart.XAxes>
+                        <chart:CategoryAxis/>
+                    </chart:SfCartesianChart.XAxes>
+
+
+                    <chart:SfCartesianChart.YAxes>
+                        <chart:NumericalAxis/>
+                    </chart:SfCartesianChart.YAxes>
+
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="Air"
+                        Label="Загрязненность">
+
+                    </chart:LineSeries>
+
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MaxAir"
+                        Label="Макисальная загрязненность">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MinAir"
+                        Label="Минимальная загрязненность">
+                    </chart:LineSeries>
+                </chart:SfCartesianChart>
+            </Grid>
+
+            
+
+            <StackLayout Grid.Column="1" Grid.Row="2">
+                <Label Text="Все величины" HorizontalOptions="Center" Margin="20"/>
+                <chart:SfCartesianChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+
+                    <chart:SfCartesianChart.ZoomPanBehavior>
+                        <chart:ChartZoomPanBehavior EnablePinchZooming="True"
+                    EnableDirectionalZooming="True"/>
+                    </chart:SfCartesianChart.ZoomPanBehavior>
+
+                    <chart:SfCartesianChart.Legend>
+                        <chart:ChartLegend IsVisible="True"/>
+                    </chart:SfCartesianChart.Legend>
+
+                    <chart:SfCartesianChart.XAxes>
+                        <chart:CategoryAxis/>
+                    </chart:SfCartesianChart.XAxes>
+
+
+                    <chart:SfCartesianChart.YAxes>
+                        <chart:NumericalAxis/>
+                    </chart:SfCartesianChart.YAxes>
+
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="Temp"
+                        Label="Температура">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="Light"
+                        Label="Освещение">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}"
+                        XBindingPath="TimeStamp"
+                        YBindingPath="Air"
+                        Label="Воздух">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MaxTemp"
+                        Label="Макисальная температура">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MinTemp"
+                        Label="Минимальная температура">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MaxLight"
+                        Label="Максимальная освещенность">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MixLight"
+                        Label="Минимальная освещенность">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MaxAir"
+                        Label="Максимальная загрязненность">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding Values}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="MinAir"
+                        Label="Минимальная загрязненность">
+                    </chart:LineSeries>
+                </chart:SfCartesianChart>
+            </StackLayout>
+
+            <VerticalStackLayout Grid.Column="1" Grid.Row="3">
+                <BoxView Color="MediumPurple" HeightRequest="5"  VerticalOptions="Start" />
+                <Label Text="Выборка" FontSize="30" HorizontalOptions="Center"/>
+                <BoxView Color="MediumPurple" HeightRequest="5"  VerticalOptions="Start" />
+                <Grid ColumnSpacing="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Picker x:Name="sampling_interval_picker" Title="Интервал выборки" Grid.Row="0" Grid.Column="0" 
+                             SelectedItem="{Binding SamplingInterval}" HeightRequest="60"> 
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>1 minutes</x:String>
+                                <x:String>5 minutes</x:String>
+                                <x:String>15 minutes</x:String>
+                                <x:String>30 minutes</x:String>
+                                <x:String>1 hour</x:String>
+                                <x:String>12 hour</x:String>
+                                <x:String>1 day</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                    <Picker x:Name="time_picker" Title="Временной интервал" Grid.Row="0" Grid.Column="1"
+                            SelectedItem="{Binding TimeInterval}" HeightRequest="60">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Час(ы)</x:String>
+                                <x:String>День</x:String>
+                                <x:String>Неделя</x:String>
+                                <x:String>Месяц</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+                    <HorizontalStackLayout Grid.Row="0" Grid.Column="2" Spacing="10" HorizontalOptions="Center">
+                        <VerticalStackLayout Spacing="10">
+                        <Label x:Name="label" Text="Дата отсчета" />
+                        <DatePicker x:Name="mDatePicker" HeightRequest="46" HorizontalOptions="Center" VerticalOptions="Center" Date="{Binding Date}"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Spacing="5" >
+                            <Label Text="Часовой интревал"/>
+                            <HorizontalStackLayout Spacing="10" Padding="5" >
+                                <Entry x:Name="startHour" Text="{Binding StartHour}" WidthRequest="60" Placeholder="00:00"/>
+                                <Label Text="-до-" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Entry x:Name="endHour" Text="{Binding EndHour}" WidthRequest="60" Placeholder="00:00"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                    
+                </Grid>
+                <Button Text="Execute Command" Command="{Binding LoadMonitoringValuesCommand}" HorizontalOptions="Center" Margin="10"/>
+            </VerticalStackLayout>
+            <Grid Grid.Column="1" Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <BoxView Color="#262626" Grid.Column="0" Grid.Row="0" CornerRadius="10"/>
+                <Label Text="Сравнение" Grid.Column="0" Grid.Row="0" FontSize="40" HorizontalOptions="Center"/>
+
+                <chart:SfCartesianChart HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.Row="1">
+
+                    <chart:SfCartesianChart.ZoomPanBehavior>
+                        <chart:ChartZoomPanBehavior EnablePinchZooming="True"
+                        EnableDirectionalZooming="True"/>
+                    </chart:SfCartesianChart.ZoomPanBehavior>
+
+                    <chart:SfCartesianChart.Legend>
+                        <chart:ChartLegend IsVisible="True"/>
+                    </chart:SfCartesianChart.Legend>
+
+                    <chart:SfCartesianChart.XAxes>
+                        <chart:CategoryAxis/>
+                    </chart:SfCartesianChart.XAxes>
+
+
+                    <chart:SfCartesianChart.YAxes>
+                        <chart:NumericalAxis/>
+                    </chart:SfCartesianChart.YAxes>
+
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding CompareValues}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="FirstValue"
+                        Label="Первое значение">
+                    </chart:LineSeries>
+
+                    <chart:LineSeries 
+                        ItemsSource="{Binding CompareValues}" 
+                        XBindingPath="TimeStamp"
+                        YBindingPath="SecondValue"
+                        Label="Второе значение">
+                    </chart:LineSeries>
+                </chart:SfCartesianChart>
+
+                <VerticalStackLayout  Grid.Column="0" Grid.Row="2">
+                    <BoxView Color="MediumPurple" HeightRequest="5"  VerticalOptions="Start" />
+                    <Label Text="Выборка" FontSize="30" HorizontalOptions="Center"/>
+                    <BoxView Color="MediumPurple" HeightRequest="5"  VerticalOptions="Start" />
+                    <Grid ColumnSpacing="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="10">
+                            <Picker x:Name="valuePicker" Title="Выбор характеристики" SelectedItem="{Binding ValueSelected}">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Температура</x:String>
+                                        <x:String>Освещенность</x:String>
+                                        <x:String>Загрязненность воздуха</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Picker x:Name="valueSamplingComparePicker" Title="Интервал выборки" SelectedItem="{Binding SamplingCompareInterval}">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>1 minutes</x:String>
+                                        <x:String>5 minutes</x:String>
+                                        <x:String>15 minutes</x:String>
+                                        <x:String>30 minutes</x:String>
+                                        <x:String>1 hour</x:String>
+                                        <x:String>12 hour</x:String>
+                                        <x:String>1 day</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="10">
+                            <Picker x:Name="valueTypePicker" Title="Выбор типа характеристики" SelectedItem="{Binding ValueType}">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Среднее значение</x:String>
+                                        <x:String>Максимальное значение</x:String>
+                                        <x:String>Минимальное значение</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                                <Label Text="Дата второго значения"/>
+                                <Label Text="Дата первого значения"/>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                                <DatePicker x:Name="samplingУтвDatePicker" HeightRequest="46"
+                                VerticalOptions="Center" Date="{Binding DateSecondCompare}"/>
+                                <DatePicker x:Name="samplingStartDatePicker" HeightRequest="46"
+                                    VerticalOptions="Center" Date="{Binding DateFirstCompare}"/>
+                            </HorizontalStackLayout>
+                            
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="2" Spacing="10">
+                            <Picker x:Name="samplingComparePicker" Title="Временной интервал" SelectedItem="{Binding TimeCompareInterval}">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Час(ы)</x:String>
+                                        <x:String>День</x:String>
+                                        <x:String>Неделя</x:String>
+                                        <x:String>Месяц</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                            <Label Text="Часовой интервал"/>
+                            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                                <Entry x:Name="startHourCompare" Text="{Binding StartCompareHour}" WidthRequest="60" Placeholder="00:00"/>
+                                <Label Text="-до-" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                <Entry x:Name="endHourCompare" Text="{Binding EndCompareHour}" WidthRequest="60" Placeholder="00:00"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                        <Button Text="Execute command" x:Name="compareButton" Command="{Binding LoadCompareValuesCommand}" Grid.Row="1" Grid.Column="1" Margin="17" WidthRequest="150"/>
+                    </Grid>
+                </VerticalStackLayout>
+
+                    </Grid>
+                    
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
